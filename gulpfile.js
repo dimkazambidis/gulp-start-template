@@ -33,8 +33,8 @@ gulp.task('js', function() {
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/js/common.js'
 	])
-	.pipe(concat('scripts.min.js'))
-	.pipe(uglify())
+	.pipe(concat('scripts.js'))
+	//.pipe(uglify())
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.stream());
 });
@@ -43,11 +43,11 @@ gulp.task('js', function() {
   Sass
 ***************************/
 gulp.task('sass', function() {
-	return gulp.src('app/sass/**/*.scss')
+	return gulp.src('app/sass/**/*.sass')
 		.pipe(sass({
 			outputStyle: 'expanded'
 		}).on('error', sass.logError))
-		.pipe(rename({suffix: '.min'}))
+		//.pipe(rename({suffix: '.min'}))
 		.pipe(autoprefixer({
 			browsers: ['last 15 versions']
 		}))
@@ -60,7 +60,7 @@ gulp.task('sass', function() {
   Watch
 ***************************/
 gulp.task('watch', ['sass', 'js', 'browser-sync'], function() {
-	gulp.watch('app/sass/**/*.scss', ['sass']);
+	gulp.watch('app/sass/**/*.sass', ['sass']);
 	gulp.watch('app/*.html').on('change', browserSync.reload);
 	gulp.watch('app/js/**/*.js').on('change', browserSync.reload);
 });
@@ -90,11 +90,11 @@ gulp.task('build', ['imagemin', 'sass', 'js', 'removedist'], function() {
 		]).pipe(gulp.dest('dist'));
 
 	var buildCss = gulp.src([
-		'app/css/style.min.css',
+		'app/css/style.css',
 		]).pipe(gulp.dest('dist/css'));
 
 	var buildJs = gulp.src([
-		'app/js/scripts.min.js',
+		'app/js/scripts.js',
 		]).pipe(gulp.dest('dist/js'));
 
 	var buildFonts = gulp.src([
