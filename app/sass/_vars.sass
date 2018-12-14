@@ -1,18 +1,41 @@
-$default-font: "roboto-example", sans-serif
+//===== Font family =====//
+$default-font: "Roboto", sans-serif //----- Base font
 
-$accent: orange
+//===== Colors =====//
+$color-base: #506874     //----- Base color
+$color-accent: #ce4330   //----- Accent color
+$color-placeholder: #666 //----- Placeholders color
+$color-success: #5baf57  //----- Success color
+$color-danger: #d04040   //----- Danger color
+$color-text: #333        //----- Standart text color
+
+//===== Fonts sizes =====//
+$fz-base: 16       //----- Base font size (px)
+$lh-base: 1.5      //----- Base line height
+$scale-base: 1.333 //----- Scale count (Typical scale: http://type-scale.com/)
+
+//===== For vertical rhythm =====//
+=stripes()
+	background: linear-gradient(to top, #f0a2c4 10%, rgba(240, 162, 196, 0) 10%)
+	background-size: 100% $lh-base / 2 + rem
+
+//===== Heading sizes =====//
+$fz-h6: 1 / $scale-base      //----- Font size h6
+$fz-h5: 1                    //----- Font size h5
+$fz-h4: $scale-base          //----- Font size h4
+$fz-h3: $scale-base * $fz-h4 //----- Font size h3
+$fz-h2: $scale-base * $fz-h3 //----- Font size h2
+$fz-h1: $scale-base * $fz-h2 //----- Font size h1
 
 =fz($fz)
-	font-size: $fz/16 + em
+	font-size: $fz/$fz-base + rem
 
-=lh($fz, $lh)
-	line-height: $lh/$fz + em
+=lh($lh)
+	line-height: $lh/$fz-base + rem
 
-// Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss"
-$grid-gutter-width: 30px
+//===== Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss" =====//
+$grid-gutter-width: 32px //----- Gutters widths
+$grid-columns: 12        //----- Columns count
 
-$grid-columns: 12
-
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1230px)
-
-$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)!default
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1230px)      //----- Breakpoints
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)!default //----- Containers widths
