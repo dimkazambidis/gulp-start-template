@@ -5,23 +5,31 @@
 /*==========  Desktop First  ==========*/
 
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : map-get($grid-breakpoints, xl))
+@media only screen and (max-width : map-get($grid-breakpoints, xl) - 1px)
 	/**/
+	.hidden-lg
+		display: none
 
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : map-get($grid-breakpoints, lg))
+@media only screen and (max-width : map-get($grid-breakpoints, lg) - 1px)
 	/**/
+	.hidden-md
+		display: none
 
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : map-get($grid-breakpoints, md))
+@media only screen and (max-width : map-get($grid-breakpoints, md) - 1px)
 	/**/
+	.hidden-sm
+		display: none
 
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : map-get($grid-breakpoints, sm))
+@media only screen and (max-width : map-get($grid-breakpoints, sm) - 1px)
 	/**/
+	.hidden-xs
+		display: none
 
 
 /* Custom, iPhone Retina */
@@ -54,4 +62,6 @@
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : map-get($grid-breakpoints, xl))
 	/**/
+	.hidden-xl
+		display: none
 

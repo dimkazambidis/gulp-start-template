@@ -29,6 +29,10 @@
 	color: $color-placeholder
 	opacity: 1
 
+html
+	font-size: $fz-base + px
+	line-height: $lh-base + rem
+
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
 	color: $color-danger
@@ -37,13 +41,12 @@ body textarea:required:valid
 	color: $color-success
 
 body
-	font-size: $fz-base + px
-	line-height: $lh-base + rem
 	min-width: 320px
 	position: relative
 	font-family: $default-font
 	overflow-x: hidden
 	opacity: 1
+	color: $color-text
 	+stripes()
 
 h1, h2, h3, h4, h5, h6
@@ -80,6 +83,21 @@ p
 ul
 	margin-bottom: 1.5rem
 	padding-left: 1rem
+	list-style: none
+	li
+		position: relative
+		&::before
+			content: "•"
+			display: inline-block
+			position: absolute
+			color: inherit
+			left: -1em
+			font-weight: 700
+
+a
+	color: $color-accent
+	&:hover
+		color: $color-accent * 0.6
 
 .site
 	display: flex
